@@ -532,9 +532,9 @@ fence_db_size    = 10
 sheepdog_db_size = 10
 indexd_db_size   = 10
 
-fence_db_instance    = "db.t2.micro"
-sheepdog_db_instance = "db.t2.micro"
-indexd_db_instance   = "db.t2.micro"
+fence_db_instance    = "db.t3.micro"
+sheepdog_db_instance = "db.t3.micro"
+indexd_db_instance   = "db.t3.micro"
 
 # This indexd guid prefix should come from Trevar/ZAC
 indexd_prefix=ENTER_UNIQUE_GUID_PREFIX
