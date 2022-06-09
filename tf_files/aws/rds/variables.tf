@@ -28,7 +28,7 @@ variable "rds_instance_engine_version" {
 
 variable "rds_instance_instance_class" {
   description = "The instance type of the RDS instance"
-  default     = "db.t2.micro"
+  default     = "db.t3.micro"
 }
 
 variable "rds_instance_name" {
