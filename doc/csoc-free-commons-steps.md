@@ -336,7 +336,7 @@ source ~/.bashrrc
 
 6. Apply the global manifest
 ```bash
-$ kubectl apply -f ~/Gen3Secrets/00configmap.yaml
+kubectl apply -f ~/Gen3Secrets/00configmap.yaml
 ```
 
 7. Verify that kubernetes is up. After sourcing our local bashrc file we should be able to talk to kubernetes:
