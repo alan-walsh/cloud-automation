@@ -160,7 +160,7 @@ gen3 tfapply
 cp -r commons-test_output/ $HOME
 ```
 
-## Missing part: start Elasticsearch
+## Third part: start Elasticsearch
 
 1. Initialize the base module
 ```bash
@@ -193,7 +193,7 @@ gen3 tfplan
 gen3 tfapply
 ```
 
-## Third part, deploy the kubernetes cluster
+## Fourth part, deploy the kubernetes cluster
 
 1. Initialize the EKS module
 ```bash
@@ -257,7 +257,7 @@ cp commons-test_output_EKS/kubeconfig $HOME
 
 
 
-## Fourth part, bring up services in kubernetes
+## Fifth part, bring up services in kubernetes
 
 
 1. Copy the esential files onto `Gen3Secrets` folder
