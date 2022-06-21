@@ -10,9 +10,10 @@ The following guide is intended to guide you through the process of bringing up 
 - [1. Requirements](#requirements)
 - [2. Setting up the adminVM](#first-part-setting-up-the-adminvm)
 - [3. Start gen3](#second-part-start-gen3)
-- [4. Deploy kubernetes](#third-part-deploy-the-kubernetes-cluster)
-- [5. Bring up services in kubernetes](#fourth-part-bring-up-services-in-kubernetes)
-- [6. Cleanup process](#cleanup-process)
+- [4. Deploy Elasticsearch](#third-part-deploy-elasticsearch)
+- [5. Deploy kubernetes](#fourth-part-deploy-the-kubernetes-cluster)
+- [6. Bring up services in kubernetes](#fifth-part-bring-up-services-in-kubernetes)
+- [7. Cleanup process](#cleanup-process)
 
 
 
@@ -160,7 +161,7 @@ gen3 tfapply
 cp -r commons-test_output/ $HOME
 ```
 
-## Third part: start Elasticsearch
+## Third part: deploy Elasticsearch
 
 1. Initialize the base module
 ```bash
@@ -297,20 +298,20 @@ mkdir -p ${HOME}/cdis-manifest/commons-test.planx-pla.net
     "That's all I have to say"
   ],
   "versions": {
-    "arborist": "quay.io/cdis/arborist:master",
-    "aws-es-proxy": "quay.io/cdis/aws-es-proxy:0.8",
-    "fence": "quay.io/cdis/fence:master",
+    "arborist": "quay.io/cdis/arborist:2022-06",
+    "aws-es-proxy": "quay.io/cdis/aws-es-proxy:v1.3.1",
+    "fence": "quay.io/cdis/fence:2022-06",
     "fluentd": "fluent/fluentd-kubernetes-daemonset:v1.2-debian-cloudwatch",
-    "indexd": "quay.io/cdis/indexd:master",
-    "jupyterhub": "quay.io/occ_data/jupyterhub:master",
-    "peregrine": "quay.io/cdis/peregrine:master",
-    "pidgin": "quay.io/cdis/pidgin:master",
-    "portal": "quay.io/cdis/data-portal:master",
-    "revproxy": "quay.io/cdis/nginx:1.15.5-ctds",
-    "sheepdog": "quay.io/cdis/sheepdog:master",
-    "spark": "quay.io/cdis/gen3-spark:master",
-    "manifestservice": "quay.io/cdis/manifestservice:master",
-    "wts": "quay.io/cdis/workspace-token-service:master"
+    "indexd": "quay.io/cdis/indexd:2022-06",
+    "jupyterhub": "quay.io/occ_data/jupyterhub:2022-06",
+    "peregrine": "quay.io/cdis/peregrine:2022-06",
+    "pidgin": "quay.io/cdis/pidgin:2022-06",
+    "portal": "quay.io/cdis/data-portal:2022-06",
+    "revproxy": "quay.io/cdis/nginx:2022-06",
+    "sheepdog": "quay.io/cdis/sheepdog:2022-06",
+    "spark": "quay.io/cdis/gen3-spark:2022-06",
+    "manifestservice": "quay.io/cdis/manifestservice:2022-06",
+    "wts": "quay.io/cdis/workspace-token-service:2022-06"
   },
   "arborist": {
     "deployment_version": "2"
@@ -319,13 +320,13 @@ mkdir -p ${HOME}/cdis-manifest/commons-test.planx-pla.net
     "enabled": "no"
   },
   "global": {
-    "environment": "devplanetv1",
-    "hostname": "commons-test.planx-pla.net",
+    "environment": "ardac6",
+    "hostname": "dev.ardac.org",
     "revproxy_arn": "arn:aws:acm:us-east-1:707767160287:certificate/c676c81c-9546-4e9a-9a72-725dd3912bc8",
     "dictionary_url": "https://s3.amazonaws.com/dictionary-artifacts/datadictionary/develop/schema.json",
     "portal_app": "dev",
-    "kube_bucket": "kube-commons-test-gen3",
-    "logs_bucket": "logs-commons-test-gen3",
+    "kube_bucket": "kube-ardac6-gen3",
+    "logs_bucket": "logs-ardac-gen3",
     "sync_from_dbgap": "False",
     "useryaml_s3path": "s3://cdis-gen3-users/dev/user.yaml",
     "netpolicy": "on"
