@@ -160,9 +160,38 @@ gen3 tfapply
 cp -r commons-test_output/ $HOME
 ```
 
+## Missing part: start Elasticsearch
 
+1. Initialize the base module
+```bash
+gen3 workon <aws profile> <commons-name>_es 
+```
 
+Ex:
+```
+gen3 workon cdistest commons-test_es
+```
 
+  Note: The third argument of the above command (cdistest) refers to the profile in the config file setup in step five of the first part.
+        The fourth argument (commons-test) would be the name of the commons you want to use; only lowercase letters and hyphens are permitted. Making the commmons-name unique is recommended.
+
+2. Go to the terraform workspace folder
+```bash
+gen3 cd
+```
+
+3. Edit the `config.tfvars` file with your preferred text editor.
+
+4. Create a terraform plan
+```bash
+gen3 tfplan
+```
+  You may want to review what will be created by terraform by going through the outputed plan.
+
+5. Apply the previously created plan
+```bash
+gen3 tfapply
+```
 
 ## Third part, deploy the kubernetes cluster
 
