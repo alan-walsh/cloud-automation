@@ -425,10 +425,22 @@ Now, let's delete kubernetes cluster:
 
 ```bash
 gen3 workon cdistest commons-test_eks
+gen3 cd
 gen3 tfplan --destroy
 gen3 tfapply
 ```
 
+Once that destroy is done, let's delete the Elasticsearch deployment.
+
+## Destroy the Elasticsearch deployment
+
+
+```bash
+gen3 workon cdistest commons-test_es
+gen3 cd
+gen3 tfplan --destroy
+gen3 tfapply
+```
 
 Once that destroy is done, let's delete the base components.
 
@@ -437,10 +449,15 @@ Once that destroy is done, let's delete the base components.
 
 ```bash
 gen3 workon cdistest commons-test
+gen3 cd
 gen3 tfplan --destroy
 gen3 tfapply
 ```
 
 **NOTES:**
-Sometimes buckets created through `gen3` get populated with logs and other data. You may need to empty them before running the above commands. Otherwise, when applying the plan it might fail to delete the bucket.
-
+* Sometimes buckets created through `gen3` get populated with logs and other data. You may need to empty them before running the above commands. Otherwise, when applying the plan it might fail to delete the bucket.
+* RDS instances will sometimes complain about snapshots. In this case, probably easiest to delete them manually using the AWS web console.
+* If any destroys get stuck, try using terraform directly, e.g.:
+```
+terraform destroy
+```
