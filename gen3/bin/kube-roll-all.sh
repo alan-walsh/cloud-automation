@@ -216,7 +216,7 @@ fi
 gen3 kube-setup-metadata
 
 if g3k_manifest_lookup .versions.ssjdispatcher 2>&1 /dev/null; then
-  gen3 kube-setup-ssjdispatcher
+  gen3 kube-setup-ssjdispatcher auto
 fi
 
 if g3k_manifest_lookup '.versions["access-backend"]' 2> /dev/null; then
