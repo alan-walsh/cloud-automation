@@ -249,7 +249,8 @@ gen3 tfplan
 ```bash
 gen3 tfapply
 ```
-
+  Again, be patient. This deployment will take about 10-15 minutes.
+  
 6. The EKS module creates a kubernetes configuration file (kubeconfig), copy it to the user's home folder.
 ```bash
 cp commons-test_output_EKS/kubeconfig $HOME
