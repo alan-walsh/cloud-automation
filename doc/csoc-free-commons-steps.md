@@ -193,7 +193,7 @@ gen3 tfplan
 ```bash
 gen3 tfapply
 ```
-Be patient! This step will take quite a while (20-30 mins).
+Be patient! This step will take quite a while (15-20 mins).
 
 ## Fourth part, deploy the kubernetes cluster
 
