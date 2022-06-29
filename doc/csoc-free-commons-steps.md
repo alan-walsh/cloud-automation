@@ -363,7 +363,8 @@ if [[ -z "$GEN3_NOPROXY" ]]; then
 fi
 ```
 
-If it doesn't, adjust accordingly. If it does, source it:
+NOTE: It is very important to check the first two lines, which reference the specific deployment. Be sure to check that this matches your current deployment. Edit as necessary, then source it:
+
 ```bash
 source ~/.bashrrc
 ```
