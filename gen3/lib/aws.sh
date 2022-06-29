@@ -455,9 +455,13 @@ EOM
       commonsName=${GEN3_WORKSPACE//_eks/}
       cat - <<EOM
 vpc_name      = "${commonsName}"
-instance_type = "t3.xlarge"
-ec2_keyname   = "someone@uchicago.edu"
 users_policy  = "${commonsName}"
+instance_type = "t3.2xlarge"
+ec2_keyname   = "someone@uchicago.edu"
+peering_vpc_id  = "vpc-0f44b93d9e1080594"
+csoc_managed    = "false"
+peering_cidr    = "10.128.0.0/16"
+eks_version     = "1.19"
 EOM
       return 0
   fi
