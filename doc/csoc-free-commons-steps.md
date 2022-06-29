@@ -156,6 +156,8 @@ gen3 tfplan
 gen3 tfapply
 ```
 
+NOTE: I almost always get at least one error on the first "apply" about bucket policy. Simply run `gen3 tfplan` and `gen3 tfapply` again and the process should complete successfully.
+
 6. Copy the newly commons-test_output folder created to the user's home folder. Keep in mind that you'll see the folder if you haven't `cd` onto a different folder after running `gen3 cd`
 ```bash
 cp -r commons-test_output/ $HOME
