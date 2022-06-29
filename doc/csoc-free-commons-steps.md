@@ -51,7 +51,7 @@ Additionally, we recommend requesting a SSL certificate for the domain you are g
 
 1. Clone the repo
 ```bash
-git clone https://github.com/uc-cdis/cloud-automation.git
+git clone https://github.com/alan-walsh/cloud-automation.git
 ```
 
 2. If no proxy is needed then 
