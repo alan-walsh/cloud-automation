@@ -7,4 +7,4 @@ data:
   hostname: ""
   revproxy_arn: ""
   slack_webhook: None
-  gitops_path: "https://github.com/uc-cdis/cdis-manifest.git"
+  gitops_path: "https://github.com/alan-walsh/cdis-manifest.git"
