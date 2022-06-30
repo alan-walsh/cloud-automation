@@ -106,11 +106,11 @@ SESSION_ALLOWED_SCOPES:
 # default to NIH login.
 # - Optional parameters: "desc" (description) and "secondary" (boolean - can
 # be used by the frontend to display secondary buttons differently).
-LOGIN_OPTIONS: [] # !!! remove the empty list to enable login options!
-  # - name: 'Login from Google'
-  #   desc: 'description'
-  #   idp: google
-  #   secondary: True
+LOGIN_OPTIONS: # !!! remove the empty list to enable login options!
+   - name: 'Login from Google'
+     desc: 'description'
+     idp: google
+     secondary: True
   # - name: 'ORCID Login'
   #   idp: orcid
   # - name: 'Microsoft Login'
@@ -143,7 +143,7 @@ LOGIN_OPTIONS: [] # !!! remove the empty list to enable login options!
 # - Google? Use: '{{BASE_URL}}/login/google'
 # - Multi-tenant fence (e.g. another fence instance)? Use: '{{BASE_URL}}/login/fence'
 # - Sibboleth? Use: '{{BASE_URL}}/login/shib'
-DEFAULT_LOGIN_IDP: null
+DEFAULT_LOGIN_IDP: 'google'
 DEFAULT_LOGIN_URL: '{{BASE_URL}}/login/google'
 
 # `LOGIN_REDIRECT_WHITELIST` is a list of extra whitelisted URLs which can be redirected
