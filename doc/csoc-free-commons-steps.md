@@ -393,10 +393,15 @@ gen3 roll all
 kubectl get service revproxy-service-elb -o json | jq -r .status.loadBalancer.ingress[].hostname
 ```
 
-10. Go to your registrar and point the desired domain to the outcome of above command.
+10. Go to your registrar and point the desired domain to the outcome of above command. In AWS, this is done using Route 53.
 
+11. Enable Google logins
 
+Use vi to edit $HOME/Gen3Secrets/apis_configs/fence-config.yaml
 
+Replace the empty strings for `client_id` and `client_secret`, replacing them with the correct Google Client ID and Secret.
+
+After saving your edits, run `gen3 kube-setup-fence` to redeploy Fence with the changes.
 
 # Cleanup process
 
