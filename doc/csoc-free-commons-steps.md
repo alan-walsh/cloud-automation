@@ -165,6 +165,8 @@ cp -r commons-test_output/ $HOME
 
 ## Third part: deploy Elasticsearch
 
+NOTE: In the current version, only one instance of Elasticsearch is supported per AWS account. This is due to naming, which will not be unique to a deployment. In other words, there can only be one active Gen3 deployment per account.
+
 1. Initialize the base module
 ```bash
 gen3 workon <aws profile> <commons-name>_es 
