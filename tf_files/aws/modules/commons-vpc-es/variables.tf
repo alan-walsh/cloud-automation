@@ -10,11 +10,11 @@ variable "secondary_slack_webhook" {
 }
 
 variable "instance_type" {
-  default = "m4.large.elasticsearch"
+  default = "t3.small.search"
 }
 
 variable "ebs_volume_size_gb" {
-  default = 20
+  default = 10
 }
 
 variable "encryption" {
@@ -22,7 +22,7 @@ variable "encryption" {
 }
 
 variable "instance_count" {
-  default = 3
+  default = 1
 }
 
 variable "organization_name" {
