@@ -433,10 +433,11 @@ EOM
       commonsName=${GEN3_WORKSPACE//_es/}
       cat - <<EOM
 vpc_name   = "${commonsName}"
-instance_type = "m4.large.elasticsearch"
-ebs_volume_size_gb = 20
-slack_webhook             = FILL THIS IN FOR CLOUDWATCH ALARMS
-secondary_slack_webhook   = FILL THIS IN FOR CLOUDWATCH ALARMS
+instance_type = "t3.small.search"
+instance_count = 1
+ebs_volume_size_gb = 10
+#slack_webhook             = FILL THIS IN FOR CLOUDWATCH ALARMS
+#secondary_slack_webhook   = FILL THIS IN FOR CLOUDWATCH ALARMS
 EOM
       return 0
   fi
@@ -465,24 +466,25 @@ users_policy  = "${commonsName}"
 
 ## Optional Variables
 # EC2 Instance type for k8s workers
-instance_type = "t3.xlarge"
+instance_type = "t3.2xlarge"
 # EC2 Instance type for k8s jupyter workers
 jupyter_instance_type = "t3.large"
 # EC2 Instance type for k8s workflow workers
 workflow_instance_type = "t3.2xlarge"
+csoc_managed = "false"
 
 # the CIDR were your adminVM belongs to.
-peering_cidr = "10.128.0.0/20"
+peering_cidr = "10.128.0.0/16"
 
 # A secondary CIDR range that will get allocated the the workflow autoscaling group
 secondary_cidr_block = ""
-peering_vpc_id = "vpc-e2b51d99"
+peering_vpc_id = "vpc-0f44b93d9e1080594"
 
 # Volume size for the k8s workers
 worker_drive_size = 30
 
 # Version for EKS cluster
-eks_version = "1.16"
+eks_version = "1.19"
 
 # VPC module should have been deployed using the network_expansion = true variable, otherwise wks will fail
 workers_subnet_size = 24
@@ -611,12 +613,15 @@ cat - <<EOM
 # VPC name is also used in DB name, so only alphanumeric characters
 vpc_name="$GEN3_WORKSPACE"
 #
-vpc_cidr_block="172.X.Y.0/20"
+vpc_cidr_block="10.138.0.0/20"
+peering_cidr="10.128.0.0/16"
+peering_vpc_id="vpc-0f44b93d9e1080594"
+csoc_managed="false"
 
-dictionary_url="https://s3.amazonaws.com/dictionary-artifacts/YOUR/DICTIONARY/schema.json"
-portal_app="dev"
+dictionary_url="https://s3.amazonaws.com/dictionary-artifacts/datadictionary/develop/schema.json"
+portal_app="gitops"
 
-aws_cert_name="arn:aws:acm:REGION:ACCOUNT-NUMBER:certificate/CERT-ID"
+aws_cert_name="arn:aws:acm:us-east-1:233907574649:certificate/ea2a3f25-db2c-4549-aba0-61af2df0342b"
 
 fence_db_size    = 10
 sheepdog_db_size = 10
@@ -627,15 +632,16 @@ sheepdog_db_instance = "db.t3.micro"
 indexd_db_instance   = "db.t3.micro"
 
 # This indexd guid prefix should come from Trevar/ZAC
-indexd_prefix=ENTER_UNIQUE_GUID_PREFIX
+#indexd_prefix=ENTER_UNIQUE_GUID_PREFIX
 
-hostname="YOUR.API.HOSTNAME"
+hostname="dev.ardac.org"
 #
 # Bucket in bionimbus account hosts user.yaml
 # config for all commons:
 #   s3://cdis-gen3-users/CONFIG_FOLDER/user.yaml
 #
-config_folder="PUT-SOMETHING-HERE"
+config_folder="config"
+users_bucket_name="cdis-state-ac233907574649-gen3"
 
 google_client_secret="YOUR.GOOGLE.SECRET"
 google_client_id="YOUR.GOOGLE.CLIENT"
