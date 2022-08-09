@@ -397,7 +397,9 @@ kubectl get service revproxy-service-elb -o json | jq -r .status.loadBalancer.in
 
 Use vi to edit $HOME/Gen3Secrets/apis_configs/fence-config.yaml
 
-Replace the empty strings for `client_id` and `client_secret`, replacing them with the correct Google Client ID and Secret.
+* Replace the empty strings for `client_id` and `client_secret`, replacing them with the correct Google Client ID and Secret.
+* Remove empty list `[]` from LOGIN_OPTIONS. Uncomment the first four lines, which contain the `'Login from Google'` configuration.
+* Set DEFAULT_LOGIN_IDP to `'google'` (defaults to null)
 
 After saving your edits, run `gen3 kube-setup-fence` to redeploy Fence with the changes.
 
