@@ -101,7 +101,7 @@ Ex:
 gen3 workon cdistest commons-test
 ```
 
-  Note: The third argument of the above command (cdistest) refers to the profile in the config file setup in step five of the first part.
+  Note: The third argument of the above command (cdistest) refers to the profile in the config file from step five of the admin VM setup.
         The forth argument (commons-test) would be the name of the commons you want to use; only lowercase letters and hyphens are permitted. Making the commmons-name unique is recommended.
 
 2. Go to the terraform workspace folder
@@ -176,8 +176,8 @@ Ex:
 gen3 workon cdistest commons-test_es
 ```
 
-  Note: The third argument of the above command (cdistest) refers to the profile in the config file setup in step five of the first part.
-        The fourth argument (commons-test) would be the name of the commons you want to use; only lowercase letters and hyphens are permitted. Making the commmons-name unique is recommended.
+  Note: The third argument of the above command (cdistest) refers to the profile in the config file from step five of the admin VM setup.
+        The fourth argument would be the name of the commons you want to use; only lowercase letters and hyphens are permitted. You must add `_es` to the name in order to invoke the ES module.
 
 2. Go to the terraform workspace folder
 ```bash
@@ -205,8 +205,8 @@ Be patient! This step will take quite a while (15-20 mins).
 gen3 workon cdistest commons-test_eks
 ```
 
-  Note: The third argument of the above command (cdistest) refers to the profile in the config file setup in step five of the first part.
-        The forth argument would be the name of the commons you want to use; only lowercase letters and hyphens are permitted. You must add `_eks` to the name in order to invoke the EKS module.
+  Note: The third argument of the above command (cdistest) refers to the profile in the config file from step five of the admin VM setup.
+        The fourth argument would be the name of the commons you want to use; only lowercase letters and hyphens are permitted. You must add `_eks` to the name in order to invoke the EKS module.
 
 2. Go to the terraform workspace folder
 ```bash
@@ -236,7 +236,7 @@ gen3 cd
 
 *Optional*
 
-`eks_version` default set to 1.14, but you can change it to 1.13 or 1.15.
+`eks_version` You should change this to 1.19 or higher. This should match the kubectl version installed on the admin VM. Be aware that if you set it too high you could encounter fatal errors on the EKS deployment.
 `sns_topic_arn` The kubernetes cluster that runs gen3 commons run a fluentd daemonset that sends logs onto CloudWatchLogGroups. If using fluentd version `v1.10.2-debian-cloudwatch-1.0` (set in the manifest), the configuration used would create new CloudWatchLogs Streams with the date as prefix, for this to work and rotate daily , a cron job must be running on the cluster that does this for us. 
                 Said job would publish an SNS topic of your choice. Should you want this enable, set this variable with a valid SNS so the kubernetes workers can access the service.
 
