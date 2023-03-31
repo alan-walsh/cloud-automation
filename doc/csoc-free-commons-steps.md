@@ -236,7 +236,7 @@ gen3 cd
 
 *Optional*
 
-`eks_version` You should change this to 1.19 or higher. This should match the kubectl version installed on the admin VM. Be aware that if you set it too high you could encounter fatal errors on the EKS deployment.
+`eks_version` You should change this to 1.21 or higher. This should match the kubectl version installed on the admin VM. Be aware that if you set it too high you could encounter fatal errors on the EKS deployment.
 `sns_topic_arn` The kubernetes cluster that runs gen3 commons run a fluentd daemonset that sends logs onto CloudWatchLogGroups. If using fluentd version `v1.10.2-debian-cloudwatch-1.0` (set in the manifest), the configuration used would create new CloudWatchLogs Streams with the date as prefix, for this to work and rotate daily , a cron job must be running on the cluster that does this for us. 
                 Said job would publish an SNS topic of your choice. Should you want this enable, set this variable with a valid SNS so the kubernetes workers can access the service.
 
@@ -366,7 +366,7 @@ fi
 NOTE: It is very important to check the first two lines, which reference the specific deployment. Be sure to check that this matches your current deployment. Edit as necessary, then source it:
 
 ```bash
-source ~/.bashrrc
+source ~/.bashrc
 ```
 
 6. Apply the global manifest
